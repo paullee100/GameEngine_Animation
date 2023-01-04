@@ -3,6 +3,7 @@ class Mario {
         Object.assign(this, {game});
 
         this.game.mario = this;
+        this.state = 0; // idle = 0, running = 1, flying = 2
 
         this.spritesheet = ASSET_MANAGER.getAsset("./sprites/mario.png");
     };
@@ -12,6 +13,6 @@ class Mario {
     };
 
     draw(ctx) {
-        ctx.drawImage(this.spritesheet, 0, 0);
+        ctx.drawImage(this.spritesheet, 208, 76, 16, 32, 0, 0, 48, 96);
     };
 };
