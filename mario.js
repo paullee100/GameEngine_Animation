@@ -1,6 +1,10 @@
 class Mario {
-    constructor() {
+    constructor(game, x, y) {
+        Object.assign(this, {game, x, y});
 
+        this.game.mario = this;
+
+        this.spritesheet = ASSET_MANAGER.getAsset("./sprites/mario.png");
     };
 
     update() {
