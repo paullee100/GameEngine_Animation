@@ -11,7 +11,7 @@ ASSET_MANAGER.downloadAll(() => {
 
 	gameEngine.init(ctx);
 
-	gameEngine.addEntity(new SceneManager(gameEngine));
-	
+	gameEngine.addEntity(new Mario(gameEngine));
+
 	gameEngine.start();
 });
