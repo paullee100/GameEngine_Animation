@@ -1,6 +1,6 @@
 class Mario {
-    constructor(game, x, y) {
-        Object.assign(this, {game, x, y});
+    constructor(game) {
+        Object.assign(this, {game});
 
         this.game.mario = this;
 
