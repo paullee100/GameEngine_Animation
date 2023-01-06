@@ -5,6 +5,8 @@ class GameEngine {
         // What you will use to draw
         // Documentation: https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D
         this.ctx = null;
+        this.surfaceWidth = null;
+        this.surfaceHeight = null;
 
         // Everything that will be updated and drawn each frame
         this.entities = [];
@@ -23,6 +25,8 @@ class GameEngine {
 
     init(ctx) {
         this.ctx = ctx;
+        this.surfaceWidth = this.ctx.canvas.width;
+        this.surfaceHeight = this.ctx.canvas.height;
         this.startInput();
         this.timer = new Timer();
     };
