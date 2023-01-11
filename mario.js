@@ -7,6 +7,7 @@ class Mario {
         this.facing = 0; // right = 0, left = 1
         this.state = 1; // idle = 0, walking = 1, running = 2, spinning = 3
         this.spritesheet = [];
+        this.playMusic = 0;
 
         this.spritesheet.push(ASSET_MANAGER.getAsset("./sprites/mario.png"));
         this.spritesheet.push(ASSET_MANAGER.getAsset("./sprites/mario_attack.png"));
@@ -20,11 +21,34 @@ class Mario {
     
     };
 
+    loadMusic(newLevel) {
+        this.level = newLevel;
+
+        if (this.playMusic == 1) {
+            //ASSET_MANAGER.pauseBackgroundMusic();
+            ASSET_MANAGER.playAsset(newLevel.music);
+        }
+
+    };
+
+    updateAudio() {
+        let mute = document.getElementById("mute").checked;
+        let volume = document.getElementById("volume").value;
+
+        ASSET_MANAGER.muteAudio(mute);
+        ASSET_MANAGER.adjustVolume(volume);
+    };
+
     update() {
         let WALK = 4.453125;
 
-        // this.velocity.x += WALK;
-        
+        if (this.game.click && this.playMusic == 0) {
+            this.playMusic = 1;
+            this.loadMusic(abc);
+        }
+
+        this.updateAudio();
+
         if (this.velocity.x > 700) {
             this.facing = 1;
         } else if (this.velocity.x < 0) {
